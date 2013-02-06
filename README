@@ -1,5 +1,5 @@
-get courses/sections by department, get course roster by section
+/courses?dept=AANS is one call, and it gets courses w/ their sections for the given dept for the current term
 
-or get course roster by term/crn
+and /roster?crn=xyz returns all the students and instructors for a given course in the current term
 
-courses should include instructors/sections
+[for students, get pidm, loginid, first, last, mi]
