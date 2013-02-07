@@ -11,6 +11,7 @@ using StudentService.Models;
 
 namespace StudentService.Controllers
 {
+    [ValidateKey]
     public class StudentController : Controller
     {
         // GET: /Student/Courses?department=wxyz&term=201301&key=1234
