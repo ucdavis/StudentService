@@ -13,7 +13,7 @@ namespace StudentService.Controllers
     public class StudentController : Controller
     {
         // GET: /Student/Courses?department=wxyz&key=1234
-        public ActionResult Courses(string department)
+        public ActionResult Courses(string department, string term)
         {
             if (string.IsNullOrWhiteSpace(department))
             {
@@ -39,14 +39,13 @@ FROM
         ON c.TermCode = s.TermCode 
             AND c.Crn = s.Crn
 WHERE 
-	c.TermCode = '201301' 
-	AND c.DepartmentId = 'ENL'
-    AND c.Crn = '73160'
+	c.TermCode = @Term 
+	AND c.DepartmentId = @Department    
 ";
 
             using (var db = new DbManager())
             {
-                var courseQuery = db.Connection.Query(query);
+                var courseQuery = db.Connection.Query(query, new { Term = term, Department = department });
 
                 var courses = from c in courseQuery
                               group c by c.Crn into uniqueCourses
@@ -97,8 +96,8 @@ WHERE
         public string SectionType { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
-        public TimeSpan StartTime { get; set; }
-        public TimeSpan EndTime { get; set; }
+        public TimeSpan? StartTime { get; set; }
+        public TimeSpan? EndTime { get; set; }
         public string DaysOfWeek { get; set; }
     }
 }
