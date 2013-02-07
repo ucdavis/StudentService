@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Configuration;
 using System.Web.Mvc;
 
 namespace StudentService.Helpers
@@ -11,8 +12,9 @@ namespace StudentService.Helpers
         protected override bool AuthorizeCore(HttpContextBase httpContext)
         {
             var key = httpContext.Request.QueryString["key"];
+            var secret = WebConfigurationManager.AppSettings["secret"];
 
-            return key == "123";            
+            return string.Equals(key, secret, StringComparison.InvariantCultureIgnoreCase);
         }
     }
 }

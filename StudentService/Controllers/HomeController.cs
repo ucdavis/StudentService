@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Configuration;
 using System.Web.Mvc;
 using UCDArch.Web.Attributes;
 
@@ -12,6 +13,8 @@ namespace StudentService.Controllers
     {
         public ActionResult Index()
         {
+            ViewBag.Secret = WebConfigurationManager.AppSettings["secret"];
+
             return View();
         }
 
