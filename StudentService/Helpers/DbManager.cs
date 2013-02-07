@@ -11,7 +11,7 @@ namespace StudentService.Helpers
 
         public DbManager()
         {
-            Connection = new SqlConnection(WebConfigurationManager.ConnectionStrings[""].ConnectionString);
+            Connection = new SqlConnection(WebConfigurationManager.ConnectionStrings["MainDB"].ConnectionString);
             Connection.Open();
         }
 
