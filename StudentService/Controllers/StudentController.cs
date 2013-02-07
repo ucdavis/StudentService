@@ -7,6 +7,7 @@ using Dapper;
 using StudentService.Helpers;
 using UCDArch.Web.ActionResults;
 using System;
+using StudentService.Models;
 
 namespace StudentService.Controllers
 {
@@ -61,43 +62,5 @@ WHERE
                 return new JsonNetResult(courses);
             }
         }
-    }
-
-    public class Course
-    {
-        public Course(dynamic course)
-        {
-            Crn = course.Crn;
-            Subject = course.Subject;
-            CourseNumb = course.CourseNumb;
-            Sequence = course.Sequence;
-            Name = course.Name;
-        }
-
-        public int Crn { get; set; }
-        public string Subject { get; set; }
-        public string CourseNumb { get; set; }
-        public string Sequence { get; set; }
-        public string Name { get; set; }
-        public IEnumerable<Section> Sections { get; set; }
-    }
-
-    public class Section
-    {
-        public Section(dynamic section)
-        {
-            SectionType = section.SectionType;
-            StartDate = section.StartDate;
-            EndDate = section.EndDate;
-            StartTime = section.StartTime;
-            EndTime = section.EndTime;
-            DaysOfWeek = section.DaysOfWeek;
-        }
-        public string SectionType { get; set; }
-        public DateTime StartDate { get; set; }
-        public DateTime EndDate { get; set; }
-        public TimeSpan? StartTime { get; set; }
-        public TimeSpan? EndTime { get; set; }
-        public string DaysOfWeek { get; set; }
-    }
+    }    
 }
