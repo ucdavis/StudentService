@@ -140,4 +140,29 @@ WHERE
 	AND c.DepartmentId = @Department</value>
     <comment>Queries the courses and section tables</comment>
   </data>
+  <data name="RosterQuery" xml:space="preserve">
+    <value>select s.Pidm
+,s.FirstName
+,s.LastName
+,s.LoginId
+,s.Email
+from CourseRoster r
+	inner join students s on r.Pidm = s.Pidm
+where 
+	r.Termcode =@Term
+	AND r.Crn =@Crn
+	
+select ci.InstructorId
+,i.FirstName
+,i.Mi
+,i.LastName
+,i.LoginId
+,i.Email
+from CourseInstructors ci
+	inner join Instructors i on ci.InstructorId = i.Id
+where
+	ci.TermCode = @Term
+	AND ci.Crn = @Crn</value>
+    <comment>Queries the students and instructors tables</comment>
+  </data>
 </root>

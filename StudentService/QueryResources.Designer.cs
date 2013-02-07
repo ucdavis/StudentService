@@ -87,5 +87,35 @@ namespace StudentService {
                 return ResourceManager.GetString("CourseSectionQuery", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to select s.Pidm
+        ///,s.FirstName
+        ///,s.LastName
+        ///,s.LoginId
+        ///,s.Email
+        ///from CourseRoster r
+        ///	inner join students s on r.Pidm = s.Pidm
+        ///where 
+        ///	r.Termcode =@Term
+        ///	AND r.Crn =@Crn
+        ///	
+        ///select ci.InstructorId
+        ///,i.FirstName
+        ///,i.Mi
+        ///,i.LastName
+        ///,i.LoginId
+        ///,i.Email
+        ///from CourseInstructors ci
+        ///	inner join Instructors i on ci.InstructorId = i.Id
+        ///where
+        ///	ci.TermCode = @Term
+        ///	AND ci.Crn = @Crn.
+        /// </summary>
+        internal static string RosterQuery {
+            get {
+                return ResourceManager.GetString("RosterQuery", resourceCulture);
+            }
+        }
     }
 }

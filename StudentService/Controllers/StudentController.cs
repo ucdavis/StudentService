@@ -46,37 +46,15 @@ namespace StudentService.Controllers
             {
                 return Json(new { error = true, errorString = "Neither Term nor Crn can be empty" });
             }
-
-            const string query = @"select s.Pidm
-,s.FirstName
-,s.LastName
-,s.LoginId
-,s.Email
-from CourseRoster r
-	inner join students s on r.Pidm = s.Pidm
-where 
-	r.Termcode = '201301' 
-	AND r.Crn = '52960'	
-select ci.InstructorId
-,i.FirstName
-,i.Mi
-,i.LastName
-,i.LoginId
-,i.Email
-from CourseInstructors ci
-	inner join Instructors i on ci.InstructorId = i.Id
-where
-	ci.TermCode = '201301'
-	AND ci.Crn = '52960'";
-
+                        
             using (var db = new DbManager())
             {
-                var rosterQuery = db.Connection.QueryMultiple(query);
+                var rosterQuery = db.Connection.QueryMultiple(QueryResources.RosterQuery, new { @Term = term, @Crn = crn });
 
                 var students = rosterQuery.Read().ToList();
                 var instructors = rosterQuery.Read().ToList();
 
-                return new JsonNetResult();
+                return new JsonNetResult(new { students, instructors });
             }
         }
     }    
