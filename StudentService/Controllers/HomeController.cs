@@ -13,8 +13,6 @@ namespace StudentService.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Secret = WebConfigurationManager.AppSettings["secret"];
-
             return View();
         }
 

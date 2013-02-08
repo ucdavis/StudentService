@@ -14,8 +14,10 @@
 }
 
 <div class="well">
-    @Html.ActionLink("Browse courses for 201301 in ENL", "Courses", "Student", new { term = "201301", department = "ENL", key = ViewBag.Secret }, null)
+    <p>Browse courses for 201301 in ENL</p>
+    @Url.Action("Courses", "Student", new { term = "201301", department = "ENL", key = "secret" }, null)
 </div>
 <div class="well">
-    @Html.ActionLink("View roster for course 52960 in term 201301", "Roster", "Student", new { term = "201301", crn = "52960", key = ViewBag.Secret }, null)
+    <p>View roster for course 52960 in term 201301</p>
+    @Url.Action("Roster", "Student", new { term = "201301", crn = "52960", key = "secret" }, null)
 </div>
