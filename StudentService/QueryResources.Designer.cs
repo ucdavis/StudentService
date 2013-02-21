@@ -89,7 +89,7 @@ namespace StudentService {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to select s.Pidm
+        ///   Looks up a localized string similar to select s.Pidm as Id
         ///,s.FirstName
         ///,s.LastName
         ///,s.LoginId
@@ -103,7 +103,7 @@ namespace StudentService {
         ///	AND c.Subject = @Subject
         ///	AND c.CourseNumb = @CourseNumb
         ///
-        ///select ci.InstructorId
+        ///select ci.InstructorId as Id
         ///,i.FirstName
         ///,i.Mi
         ///,i.LastName
@@ -112,7 +112,7 @@ namespace StudentService {
         ///,c.Crn
         ///from CourseInstructors ci
         ///	inner join Courses c on (ci.Crn = c.Crn AND ci.TermCode = c.TermCode)
-        ///	inner join Instructors i o [rest of string was truncated]&quot;;.
+        ///	inner join Ins [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string CourseSubjectQuery {
             get {
@@ -121,7 +121,7 @@ namespace StudentService {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to select s.Pidm
+        ///   Looks up a localized string similar to select s.Pidm as Id
         ///,s.FirstName
         ///,s.LastName
         ///,s.LoginId
@@ -132,7 +132,7 @@ namespace StudentService {
         ///	r.Termcode =@Term
         ///	AND r.Crn =@Crn
         ///	
-        ///select ci.InstructorId
+        ///select ci.InstructorId as Id
         ///,i.FirstName
         ///,i.Mi
         ///,i.LastName

@@ -141,7 +141,7 @@ WHERE
     <comment>Queries the courses and section tables</comment>
   </data>
   <data name="CourseSubjectQuery" xml:space="preserve">
-    <value>select s.Pidm
+    <value>select s.Pidm as Id
 ,s.FirstName
 ,s.LastName
 ,s.LoginId
@@ -155,7 +155,7 @@ where
 	AND c.Subject = @Subject
 	AND c.CourseNumb = @CourseNumb
 
-select ci.InstructorId
+select ci.InstructorId as Id
 ,i.FirstName
 ,i.Mi
 ,i.LastName
@@ -172,7 +172,7 @@ where
     <comment>Queries the student and instructor tables across multiple courses</comment>
   </data>
   <data name="RosterQuery" xml:space="preserve">
-    <value>select s.Pidm
+    <value>select s.Pidm as Id
 ,s.FirstName
 ,s.LastName
 ,s.LoginId
@@ -183,7 +183,7 @@ where
 	r.Termcode =@Term
 	AND r.Crn =@Crn
 	
-select ci.InstructorId
+select ci.InstructorId as Id
 ,i.FirstName
 ,i.Mi
 ,i.LastName

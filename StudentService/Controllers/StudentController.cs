@@ -60,8 +60,8 @@ namespace StudentService.Controllers
                               select new CourseRoster
                               {
                                   Crn = uniqueCourses.Key,
-                                  Students = students.Where(s => s.Crn == uniqueCourses.Key).Select(s => new Person(s.Pidm, s)).ToArray(),
-                                  Instructors = instructors.Where(i => i.Crn == uniqueCourses.Key).Select(i => new Person(i.InstructorId, i) { Mi = i.Mi }).ToArray()
+                                  Students = students.Where(s => s.Crn == uniqueCourses.Key).Select(s => new Person(s)).ToArray(),
+                                  Instructors = instructors.Where(i => i.Crn == uniqueCourses.Key).Select(i => new Person(i) { Mi = i.Mi }).ToArray()
                               };
                 
                 return new JsonNetResult(courses);

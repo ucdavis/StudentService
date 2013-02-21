@@ -7,9 +7,9 @@ namespace StudentService.Models
 {
     public class Person
     {
-        public Person(int id, dynamic person)
+        public Person(dynamic person)
         {
-            Id = id;
+            Id = person.Id;
             FirstName = person.FirstName;
             LastName = person.LastName;
             LoginId = person.LoginId;
