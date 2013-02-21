@@ -18,6 +18,10 @@
     @Url.Action("Courses", "Student", new { term = "201301", department = "ENL", key = "secret" }, null)
 </div>
 <div class="well">
+    <p>View complete roster for all courses which match the subject + courseNum  passed</p>
+    @Url.Action("RosterBySubject", "Student", new { term = "201301", subject = "ENL", courseNumber = "262" }, null)
+</div>
+<div class="well">
     <p>View roster for course 52960 in term 201301</p>
     @Url.Action("Roster", "Student", new { term = "201301", crn = "52960", key = "secret" }, null)
 </div>
