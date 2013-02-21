@@ -38,6 +38,36 @@ namespace StudentService.Controllers
             }
         }
 
+        // GET: /Student/RosterBySubject?term=201301&subject=ENL&courseNumber=262&key=1234
+        public ActionResult RosterBySubject(string term, string subject, string courseNumber)
+        {
+            if (string.IsNullOrWhiteSpace(term) || string.IsNullOrWhiteSpace(subject) || string.IsNullOrWhiteSpace(courseNumber))
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest, "Term, Subject and CourseNumber need to be provided");
+            }
+
+            using (var db = new DbManager())
+            {
+                var rosterQuery = db.Connection.QueryMultiple(QueryResources.CourseSubjectQuery, 
+                    new { Term = term, Subject = subject, CourseNumb = courseNumber });
+                
+                var students = rosterQuery.Read().ToList();
+                var instructors = rosterQuery.Read().ToList();
+
+                var courses = from c in students
+                              group c by c.Crn into uniqueCourses
+                              orderby uniqueCourses.Key
+                              select new CourseRoster
+                              {
+                                  Crn = uniqueCourses.Key,
+                                  Students = students.Where(s => s.Crn == uniqueCourses.Key).Select(s => new Person(s.Pidm, s)).ToArray(),
+                                  Instructors = instructors.Where(i => i.Crn == uniqueCourses.Key).Select(i => new Person(i.InstructorId, i) { Mi = i.Mi }).ToArray()
+                              };
+                
+                return new JsonNetResult(courses);
+            }
+        }
+
         // GET: /Student/Roster?term=201301&crn=52960&key=1234
         public ActionResult Roster(string term, string crn){
             if (string.IsNullOrWhiteSpace(term) || string.IsNullOrWhiteSpace(crn))

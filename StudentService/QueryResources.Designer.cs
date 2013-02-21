@@ -94,6 +94,38 @@ namespace StudentService {
         ///,s.LastName
         ///,s.LoginId
         ///,s.Email
+        ///,r.Crn
+        ///from CourseRoster r
+        ///	inner join Courses c on (r.Crn = c.Crn AND r.TermCode = c.TermCode)
+        ///	inner join students s on r.Pidm = s.Pidm
+        ///where 
+        ///	r.TermCode = @Term	
+        ///	AND c.Subject = @Subject
+        ///	AND c.CourseNumb = @CourseNumb
+        ///
+        ///select ci.InstructorId
+        ///,i.FirstName
+        ///,i.Mi
+        ///,i.LastName
+        ///,i.LoginId
+        ///,i.Email
+        ///,c.Crn
+        ///from CourseInstructors ci
+        ///	inner join Courses c on (ci.Crn = c.Crn AND ci.TermCode = c.TermCode)
+        ///	inner join Instructors i o [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string CourseSubjectQuery {
+            get {
+                return ResourceManager.GetString("CourseSubjectQuery", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to select s.Pidm
+        ///,s.FirstName
+        ///,s.LastName
+        ///,s.LoginId
+        ///,s.Email
         ///from CourseRoster r
         ///	inner join students s on r.Pidm = s.Pidm
         ///where 
