@@ -8,6 +8,7 @@ using StudentService.Models;
 
 namespace StudentService.Controllers
 {
+    [AllowOrigin]
     [ValidateKey]
     public class StudentController : Controller
     {
