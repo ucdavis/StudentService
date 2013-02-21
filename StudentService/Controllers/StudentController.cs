@@ -1,12 +1,9 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using Dapper;
 using StudentService.Helpers;
 using UCDArch.Web.ActionResults;
-using System;
 using StudentService.Models;
 
 namespace StudentService.Controllers
@@ -19,7 +16,7 @@ namespace StudentService.Controllers
         {
             if (string.IsNullOrWhiteSpace(department) || string.IsNullOrWhiteSpace(term))
             {
-                return Json(new { error = true, errorString = "Neither Department nor Term can be empty" });
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest, "Neither Department nor Term can be empty");
             }
 
             using (var db = new DbManager())
@@ -41,10 +38,11 @@ namespace StudentService.Controllers
             }
         }
 
+        // GET: /Student/Roster?term=201301&crn=52960&key=1234
         public ActionResult Roster(string term, string crn){
             if (string.IsNullOrWhiteSpace(term) || string.IsNullOrWhiteSpace(crn))
             {
-                return Json(new { error = true, errorString = "Neither Term nor Crn can be empty" });
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest, "Neither Term nor Crn can be empty");
             }
                         
             using (var db = new DbManager())
