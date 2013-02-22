@@ -39,6 +39,34 @@ namespace StudentService.Controllers
             }
         }
 
+        // GET: /Student/CoursesBySubject?term=201301&subject=ENL&courseNumber=262&key=1234
+        public ActionResult CoursesBySubject(string term, string subject, string courseNumber)
+        {
+            if (string.IsNullOrWhiteSpace(term) || string.IsNullOrWhiteSpace(subject) || string.IsNullOrWhiteSpace(courseNumber))
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest, "Term, Subject and CourseNumber need to be provided");
+            }
+
+            using (var db = new DbManager())
+            {
+                var courseQuery = db.Connection.Query(QueryResources.CourseSubjectQuery, 
+                    new { Term = term, Subject = subject, CourseNumb = courseNumber });
+
+                var courses = from c in courseQuery
+                              group c by c.Crn into uniqueCourses
+                              orderby uniqueCourses.Key
+                              select new
+                              {
+                                  course = new Course(uniqueCourses.First())
+                                  {
+                                      Sections = uniqueCourses.Select(x => new Section(x))
+                                  }
+                              };
+
+                return new JsonNetResult(courses);
+            }
+        }
+
         // GET: /Student/RosterBySubject?term=201301&subject=ENL&courseNumber=262&key=1234
         public ActionResult RosterBySubject(string term, string subject, string courseNumber)
         {
