@@ -141,6 +141,55 @@ WHERE
     <comment>Queries the courses and section tables</comment>
   </data>
   <data name="CourseSubjectQuery" xml:space="preserve">
+    <value>SELECT     c.TermCode
+	, c.Crn
+	, c.Subject
+	, c.CourseNumb
+	, c.Sequence
+	, c.Name
+	, s.SectionType
+	, s.StartDate
+	, s.EndDate
+	, s.StartTime
+	, s.EndTime
+	, s.DaysOfWeek
+FROM         
+	Courses c 
+	INNER JOIN Sections s
+        ON c.TermCode = s.TermCode 
+            AND c.Crn = s.Crn
+WHERE 
+	c.TermCode = @Term
+	AND c.Subject = @Subject
+	AND c.CourseNumb = @CourseNumb</value>
+    <comment>Queries the course and section tables by subject and courseNumb</comment>
+  </data>
+  <data name="RosterQuery" xml:space="preserve">
+    <value>select s.Pidm as Id
+,s.FirstName
+,s.LastName
+,s.LoginId
+,s.Email
+from CourseRoster r
+	inner join students s on r.Pidm = s.Pidm
+where 
+	r.Termcode =@Term
+	AND r.Crn =@Crn
+	
+select ci.InstructorId as Id
+,i.FirstName
+,i.Mi
+,i.LastName
+,i.LoginId
+,i.Email
+from CourseInstructors ci
+	inner join Instructors i on ci.InstructorId = i.Id
+where
+	ci.TermCode = @Term
+	AND ci.Crn = @Crn</value>
+    <comment>Queries the students and instructors tables</comment>
+  </data>
+  <data name="RosterSubjectQuery" xml:space="preserve">
     <value>select s.Pidm as Id
 ,s.FirstName
 ,s.LastName
@@ -169,31 +218,6 @@ where
 	ci.TermCode = @Term
 	AND c.Subject = @Subject
 	AND c.CourseNumb = @CourseNumb</value>
-    <comment>Queries the student and instructor tables across multiple courses</comment>
-  </data>
-  <data name="RosterQuery" xml:space="preserve">
-    <value>select s.Pidm as Id
-,s.FirstName
-,s.LastName
-,s.LoginId
-,s.Email
-from CourseRoster r
-	inner join students s on r.Pidm = s.Pidm
-where 
-	r.Termcode =@Term
-	AND r.Crn =@Crn
-	
-select ci.InstructorId as Id
-,i.FirstName
-,i.Mi
-,i.LastName
-,i.LoginId
-,i.Email
-from CourseInstructors ci
-	inner join Instructors i on ci.InstructorId = i.Id
-where
-	ci.TermCode = @Term
-	AND ci.Crn = @Crn</value>
-    <comment>Queries the students and instructors tables</comment>
+    <comment>Queries the student and instructor roster across multiple courses</comment>
   </data>
 </root>

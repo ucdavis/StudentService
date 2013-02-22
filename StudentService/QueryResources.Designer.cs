@@ -89,30 +89,27 @@ namespace StudentService {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to select s.Pidm as Id
-        ///,s.FirstName
-        ///,s.LastName
-        ///,s.LoginId
-        ///,s.Email
-        ///,r.Crn
-        ///from CourseRoster r
-        ///	inner join Courses c on (r.Crn = c.Crn AND r.TermCode = c.TermCode)
-        ///	inner join students s on r.Pidm = s.Pidm
-        ///where 
-        ///	r.TermCode = @Term	
+        ///   Looks up a localized string similar to SELECT     c.TermCode
+        ///	, c.Crn
+        ///	, c.Subject
+        ///	, c.CourseNumb
+        ///	, c.Sequence
+        ///	, c.Name
+        ///	, s.SectionType
+        ///	, s.StartDate
+        ///	, s.EndDate
+        ///	, s.StartTime
+        ///	, s.EndTime
+        ///	, s.DaysOfWeek
+        ///FROM         
+        ///	Courses c 
+        ///	INNER JOIN Sections s
+        ///        ON c.TermCode = s.TermCode 
+        ///            AND c.Crn = s.Crn
+        ///WHERE 
+        ///	c.TermCode = @Term
         ///	AND c.Subject = @Subject
-        ///	AND c.CourseNumb = @CourseNumb
-        ///
-        ///select ci.InstructorId as Id
-        ///,i.FirstName
-        ///,i.Mi
-        ///,i.LastName
-        ///,i.LoginId
-        ///,i.Email
-        ///,c.Crn
-        ///from CourseInstructors ci
-        ///	inner join Courses c on (ci.Crn = c.Crn AND ci.TermCode = c.TermCode)
-        ///	inner join Ins [rest of string was truncated]&quot;;.
+        ///	AND c.CourseNumb = @CourseNumb.
         /// </summary>
         internal static string CourseSubjectQuery {
             get {
@@ -147,6 +144,38 @@ namespace StudentService {
         internal static string RosterQuery {
             get {
                 return ResourceManager.GetString("RosterQuery", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to select s.Pidm as Id
+        ///,s.FirstName
+        ///,s.LastName
+        ///,s.LoginId
+        ///,s.Email
+        ///,r.Crn
+        ///from CourseRoster r
+        ///	inner join Courses c on (r.Crn = c.Crn AND r.TermCode = c.TermCode)
+        ///	inner join students s on r.Pidm = s.Pidm
+        ///where 
+        ///	r.TermCode = @Term	
+        ///	AND c.Subject = @Subject
+        ///	AND c.CourseNumb = @CourseNumb
+        ///
+        ///select ci.InstructorId as Id
+        ///,i.FirstName
+        ///,i.Mi
+        ///,i.LastName
+        ///,i.LoginId
+        ///,i.Email
+        ///,c.Crn
+        ///from CourseInstructors ci
+        ///	inner join Courses c on (ci.Crn = c.Crn AND ci.TermCode = c.TermCode)
+        ///	inner join Ins [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string RosterSubjectQuery {
+            get {
+                return ResourceManager.GetString("RosterSubjectQuery", resourceCulture);
             }
         }
     }

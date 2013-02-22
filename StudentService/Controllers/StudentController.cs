@@ -49,7 +49,7 @@ namespace StudentService.Controllers
 
             using (var db = new DbManager())
             {
-                var rosterQuery = db.Connection.QueryMultiple(QueryResources.CourseSubjectQuery, 
+                var rosterQuery = db.Connection.QueryMultiple(QueryResources.RosterSubjectQuery, 
                     new { Term = term, Subject = subject, CourseNumb = courseNumber });
                 
                 var students = rosterQuery.Read().ToList();
