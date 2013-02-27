@@ -1,0 +1,68 @@
+1/24/2013 3:58:06 PM	This log contains information about the import schema operation into project 'AceBanner.Db' on computer 'CAES-5D0K9W1' by user 'lai'.
+1/24/2013 3:58:06 PM	Import of database schema has started.
+1/24/2013 3:58:12 PM	Gathering database options
+1/24/2013 3:58:12 PM	Gathering users
+1/24/2013 3:58:12 PM	Gathering roles
+1/24/2013 3:58:12 PM	Gathering application roles
+1/24/2013 3:58:12 PM	Gathering role memberships
+1/24/2013 3:58:12 PM	Gathering filegroups
+1/24/2013 3:58:12 PM	Gathering full-text catalogs
+1/24/2013 3:58:12 PM	Gathering assemblies
+1/24/2013 3:58:12 PM	Gathering certificates
+1/24/2013 3:58:12 PM	Gathering asymmetric keys
+1/24/2013 3:58:12 PM	Gathering symmetric keys
+1/24/2013 3:58:12 PM	Gathering encrypted symmetric keys
+1/24/2013 3:58:12 PM	Gathering schemas
+1/24/2013 3:58:12 PM	Gathering XML schema collections
+1/24/2013 3:58:12 PM	Gathering user-defined data types
+1/24/2013 3:58:12 PM	Gathering user-defined types
+1/24/2013 3:58:12 PM	Gathering table types
+1/24/2013 3:58:12 PM	Gathering unique keys for table types
+1/24/2013 3:58:12 PM	Gathering primary keys for table types
+1/24/2013 3:58:12 PM	Gathering check constraints for table types
+1/24/2013 3:58:12 PM	Gathering default constraints for table types
+1/24/2013 3:58:12 PM	Gathering partition functions
+1/24/2013 3:58:12 PM	Gathering partition schemes
+1/24/2013 3:58:12 PM	Gathering functions
+1/24/2013 3:58:12 PM	Gathering encrypted functions
+1/24/2013 3:58:12 PM	Gathering aggregates
+1/24/2013 3:58:12 PM	Gathering procedures
+1/24/2013 3:58:12 PM	Gathering encrypted procedures
+1/24/2013 3:58:12 PM	Gathering tables
+1/24/2013 3:58:12 PM	Gathering primary keys
+1/24/2013 3:58:12 PM	Gathering unique constraints
+1/24/2013 3:58:12 PM	Gathering foreign keys
+1/24/2013 3:58:12 PM	Gathering default constraints
+1/24/2013 3:58:12 PM	Gathering check constraints
+1/24/2013 3:58:12 PM	Gathering views
+1/24/2013 3:58:12 PM	Gathering encrypted views
+1/24/2013 3:58:12 PM	Gathering indexes
+1/24/2013 3:58:12 PM	Gathering statistics
+1/24/2013 3:58:12 PM	Gathering full-text index stoplists
+1/24/2013 3:58:12 PM	Gathering full-text indexes
+1/24/2013 3:58:12 PM	Gathering spatial indexes
+1/24/2013 3:58:12 PM	Gathering XML indexes
+1/24/2013 3:58:12 PM	Gathering encrypted triggers
+1/24/2013 3:58:12 PM	Gathering triggers
+1/24/2013 3:58:12 PM	Gathering encrypted and clr ddl triggers
+1/24/2013 3:58:12 PM	Gathering ddl triggers
+1/24/2013 3:58:12 PM	Gathering synonyms
+1/24/2013 3:58:12 PM	Gathering defaults
+1/24/2013 3:58:12 PM	Gathering data constraint uddt bindings
+1/24/2013 3:58:12 PM	Gathering rules
+1/24/2013 3:58:12 PM	Gathering data constraint uddt bindings
+1/24/2013 3:58:12 PM	Gathering message types
+1/24/2013 3:58:12 PM	Gathering queues
+1/24/2013 3:58:12 PM	Gathering contracts
+1/24/2013 3:58:12 PM	Gathering services
+1/24/2013 3:58:12 PM	Gathering event notifications
+1/24/2013 3:58:12 PM	Gathering remote service bindings
+1/24/2013 3:58:12 PM	Gathering broker priorities
+1/24/2013 3:58:12 PM	Gathering signatures
+1/24/2013 3:58:12 PM	Gathering data compression options
+1/24/2013 3:58:12 PM	Gathering extended properties
+1/24/2013 3:58:12 PM	Scanning project for duplicate elements
+1/24/2013 3:58:12 PM	Finished duplicate element processing
+1/24/2013 3:58:12 PM	Finished importing database.
+1/24/2013 3:58:12 PM	A summary of the import was saved to the following location: C:\Users\lai\Documents\GitHub\ACE\AceBanner.Db\Import Schema Logs\AceBanner.Db_20130124115806.log
+1/24/2013 3:58:12 PM	Click Finish to continue...
