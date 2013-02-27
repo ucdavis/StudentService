@@ -10,6 +10,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{E2DB3A
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "StudentService.Db", "AceBanner.Db\StudentService.Db.sqlproj", "{7C57CE1D-E367-4EB4-A848-1617D9778617}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,6 +22,12 @@ Global
 		{BB4B74AB-E9A9-428B-811D-27C9A649512B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BB4B74AB-E9A9-428B-811D-27C9A649512B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BB4B74AB-E9A9-428B-811D-27C9A649512B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C57CE1D-E367-4EB4-A848-1617D9778617}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C57CE1D-E367-4EB4-A848-1617D9778617}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C57CE1D-E367-4EB4-A848-1617D9778617}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{7C57CE1D-E367-4EB4-A848-1617D9778617}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C57CE1D-E367-4EB4-A848-1617D9778617}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C57CE1D-E367-4EB4-A848-1617D9778617}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
