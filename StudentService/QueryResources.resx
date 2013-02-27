@@ -220,4 +220,12 @@ where
 	AND c.CourseNumb = @CourseNumb</value>
     <comment>Queries the student and instructor roster across multiple courses</comment>
   </data>
+  <data name="TermCodeQuery" xml:space="preserve">
+    <value>SELECT [Id]
+      ,[Name]
+      ,[Start]
+      ,[End]
+  FROM [TermCodes]</value>
+    <comment>Queries the termcode table</comment>
+  </data>
 </root>

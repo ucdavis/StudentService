@@ -178,5 +178,18 @@ namespace StudentService {
                 return ResourceManager.GetString("RosterSubjectQuery", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SELECT [Id]
+        ///      ,[Name]
+        ///      ,[Start]
+        ///      ,[End]
+        ///  FROM [TermCodes].
+        /// </summary>
+        internal static string TermCodeQuery {
+            get {
+                return ResourceManager.GetString("TermCodeQuery", resourceCulture);
+            }
+        }
     }
 }

@@ -29,3 +29,7 @@
     <p>View roster for course 52960 in term 201301</p>
     @Url.Action("Roster", "Student", new { term = "201301", crn = "52960", key = "secret" }, null)
 </div>
+<div class="well">
+    <p>View all the TermCodes on record</p>
+    @Url.Action("TermCodes", "Student", new { key = "secret" }, null)
+</div>

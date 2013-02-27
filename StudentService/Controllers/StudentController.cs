@@ -12,6 +12,17 @@ namespace StudentService.Controllers
     [ValidateKey]
     public class StudentController : Controller
     {
+        // GET: /Student/TermCodes?key=1234
+        public ActionResult TermCodes()
+        {
+            using (var db = new DbManager())
+            {
+                var terms = db.Connection.Query(QueryResources.TermCodeQuery);
+
+                return new JsonNetResult(terms);
+            }
+        }
+
         // GET: /Student/Courses?department=wxyz&term=201301&key=1234
         public ActionResult Courses(string department, string term)
         {
