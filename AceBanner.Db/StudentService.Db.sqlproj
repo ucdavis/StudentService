@@ -82,6 +82,8 @@
     <Build Include="dbo\Tables\CourseInstructors.sql" />
     <Build Include="dbo\Tables\Instructors.sql" />
     <Build Include="dbo\Stored Procedures\usp_DownloadInstructors.sql" />
+    <Build Include="dbo\Tables\Terms.sql" />
+    <Build Include="dbo\Stored Procedures\usp_DownloadTerms.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="SchemaCompare\Clamps.scmp" />

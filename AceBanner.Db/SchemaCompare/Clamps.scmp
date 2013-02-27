@@ -4,7 +4,7 @@
   <SourceModelProvider>
     <ProjectBasedModelProvider>
       <ProjectGuid>{7c57ce1d-e367-4eb4-a848-1617d9778617}</ProjectGuid>
-      <Name>AceBanner.Db</Name>
+      <Name>StudentService.Db</Name>
     </ProjectBasedModelProvider>
   </SourceModelProvider>
   <TargetModelProvider>

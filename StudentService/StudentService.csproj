@@ -186,6 +186,7 @@
     <Compile Include="Models\Person.cs" />
     <Compile Include="Models\Roster.cs" />
     <Compile Include="Models\Section.cs" />
+    <Compile Include="Models\Term.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QueryResources.Designer.cs">
       <AutoGen>True</AutoGen>
