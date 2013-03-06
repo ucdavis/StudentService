@@ -8,7 +8,7 @@ AS
 	select * from openquery(sis, '
 		select stvterm_code, stvterm_desc, stvterm_start_date, stvterm_end_date
 		from stvterm
-		where stvterm_end_date > sysdate
+		where stvterm_end_date > sysdate - 365
 			and stvterm_trmt_code in (''Q'', ''W'')
 	')
 
