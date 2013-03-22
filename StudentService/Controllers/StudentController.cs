@@ -35,17 +35,27 @@ namespace StudentService.Controllers
             {
                 var courseQuery = db.Connection.Query(QueryResources.CourseSectionQuery, new { Term = term, Department = department });
 
+                //var courses = from c in courseQuery
+                //              group c by c.Crn into uniqueCourses
+                //              orderby uniqueCourses.Key
+                //              select new
+                //              {
+                //                  course = new Course(uniqueCourses.First())
+                //                  {
+                //                      Sections = uniqueCourses.Select(x => new Section(x))
+                //                  }
+                //              };
+
                 var courses = from c in courseQuery
-                              group c by c.Crn into uniqueCourses
-                              orderby uniqueCourses.Key
-                              select new
-                              {
-                                  course = new Course(uniqueCourses.First())
+                              group c by new {c.Subject, c.CourseNumb}
+                              into x
+                              select new Course(x.First())
                                   {
-                                      Sections = uniqueCourses.Select(x => new Section(x))
-                                  }
-                              };
-                
+                                      Sections =
+                                          x.GroupBy(y => y.Sequence)
+                                           .Select(y => new Section(y.First()) {Classtimes = y.Select(z => new Classtime(z))})
+                                  };
+
                 return new JsonNetResult(courses);
             }
         }
