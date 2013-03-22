@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 
 namespace StudentService.Models
 {
@@ -9,12 +6,10 @@ namespace StudentService.Models
     {
         public Section(dynamic section)
         {
-            SectionType = section.SectionType;
             Crn = section.Crn;
             Sequence = section.Sequence;
         }
 
-        public string SectionType { get; set; }
         public int Crn { get; set; }
         public string Sequence { get; set; }
         public IEnumerable<Classtime> Classtimes { get; set; }
