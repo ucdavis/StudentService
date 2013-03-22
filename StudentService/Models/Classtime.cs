@@ -9,7 +9,7 @@ namespace StudentService.Models
     {
         public Classtime(dynamic classTime)
         {
-            ClassType = classTime.SectionType;
+            ClassTypeId = classTime.SectionType;
             StartDate = classTime.StartDate;
             EndDate = classTime.EndDate;
             StartTime = classTime.StartTime;
@@ -17,7 +17,7 @@ namespace StudentService.Models
             DaysOfWeek = classTime.DaysOfWeek;
         }
 
-        public string ClassType { get; set; }
+        public string ClassTypeId { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         public TimeSpan? StartTime { get; set; }
