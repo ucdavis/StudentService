@@ -9,7 +9,6 @@ declare @tmp table (
 	crn int,
 	firstname varchar(50),
 	lastname varchar(50),
-	mi varchar(50),
 	instructorid int,
 	loginid varchar(20),
 	email varchar(50),
@@ -19,7 +18,7 @@ declare @tmp table (
 insert into @tmp
 select * from openquery (sis, '
 	select zsvinst_term_code, zsvinst_crn
-		, spriden_first_name, spriden_last_name, spriden_mi, spriden_pidm
+		, spriden_first_name, spriden_last_name, spriden_pidm
 		, lower(wormoth_login_id) loginid, emails.address
 		, (case when zsvinst_primary_ind = ''Y'' then 1 else 0 end) as primaryind
 	from zsvinst
@@ -44,7 +43,7 @@ select * from openquery (sis, '
 ')
 
 insert into Instructors
-select distinct instructorid, firstname, lastname, mi, loginid, email from @tmp
+select distinct instructorid, firstname, lastname, loginid, email from @tmp
 
 insert into CourseInstructors
 select newid(), termcode, crn, instructorid, primaryind

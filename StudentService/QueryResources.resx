@@ -230,7 +230,6 @@ where
 
 select ci.InstructorId as Id
 ,i.FirstName
-,i.Mi
 ,i.LastName
 ,i.LoginId
 ,i.Email

@@ -9,7 +9,7 @@
   </SourceModelProvider>
   <TargetModelProvider>
     <ConnectionBasedModelProvider>
-      <ConnectionString>Data Source=clamps;Initial Catalog=AceBanner;Integrated Security=True;Pooling=False</ConnectionString>
+      <ConnectionString>Data Source=clamps;Initial Catalog=StudentService;Integrated Security=True;Pooling=False</ConnectionString>
     </ConnectionBasedModelProvider>
   </TargetModelProvider>
   <SchemaCompareSettingsService>
