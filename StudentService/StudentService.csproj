@@ -173,6 +173,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="ComponentRegistrar.cs" />
     <Compile Include="Controllers\ApplicationController.cs" />
+    <Compile Include="Controllers\CourseController.cs" />
     <Compile Include="Helpers\AllowOrigin.cs" />
     <Compile Include="Helpers\DbManager.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -185,7 +186,7 @@
     <Compile Include="Models\Classtime.cs" />
     <Compile Include="Models\Course.cs" />
     <Compile Include="Models\Person.cs" />
-    <Compile Include="Models\Roster.cs" />
+    <Compile Include="Models\CourseRoster.cs" />
     <Compile Include="Models\Section.cs" />
     <Compile Include="Models\Term.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

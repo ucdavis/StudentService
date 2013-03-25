@@ -15,5 +15,6 @@ namespace StudentService.Models
         public int Crn { get; set; }
         public string Sequence { get; set; }
         public IEnumerable<Classtime> Classtimes { get; set; }
+        public CourseRoster CourseRoster { get; set; }
     }
 }

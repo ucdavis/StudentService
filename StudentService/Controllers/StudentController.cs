@@ -97,7 +97,7 @@ namespace StudentService.Controllers
                               orderby uniqueCourses.Key
                               select new CourseRoster
                               {
-                                  Crn = uniqueCourses.Key,
+                                  //Crn = uniqueCourses.Key,
                                   Students = students.Where(s => s.Crn == uniqueCourses.Key).Select(s => new Person(s)).ToArray(),
                                   Instructors = instructors.Where(i => i.Crn == uniqueCourses.Key).Select(i => new Person(i) { Mi = i.Mi }).ToArray()
                               };
