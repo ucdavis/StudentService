@@ -28,8 +28,8 @@ namespace StudentService.Controllers
             }
         }
 
-        // GET: /Course/CompleteList?term=201301&subject=MAT&courseNumbers=021A&courseNumbers=021B&key=1234
-        public ActionResult CompleteList(string term, string subject, string[] courseNumbers)
+        // GET: /Course/Complete?term=201301&subject=MAT&courseNumbers=021A&courseNumbers=021B&key=1234
+        public ActionResult Complete(string term, string subject, string[] courseNumbers)
         {
             if (string.IsNullOrWhiteSpace(subject) || courseNumbers == null || !courseNumbers.Any()|| string.IsNullOrWhiteSpace(term))
             {
