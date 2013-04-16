@@ -78,8 +78,8 @@ namespace StudentService.Controllers
             }
         }
 
-        // GET: /Student/RosterBySubject?term=201301&subject=ENL&courseNumber=262&key=1234
-        public ActionResult RosterBySubject(string term, string subject, string courseNumber)
+        // GET: /Student/CourseRoster?term=201301&subject=ENL&courseNumber=262&key=1234
+        public ActionResult CourseRoster(string term, string subject, string courseNumber)
         {
             if (string.IsNullOrWhiteSpace(term) || string.IsNullOrWhiteSpace(subject) || string.IsNullOrWhiteSpace(courseNumber))
             {
@@ -103,7 +103,7 @@ namespace StudentService.Controllers
                                   Instructors = instructors.Where(i => i.Crn == uniqueCourses.Key).Select(i => new Person(i)).ToArray()
                               };
                 
-                return new JsonNetResult(courses);
+                return new JsonNetResult(courses.FirstOrDefault());
             }
         }
 

@@ -152,7 +152,7 @@ namespace StudentService {
         ///,s.LastName
         ///,s.LoginId
         ///,s.Email
-        ///from Roster r
+        ///from CourseRoster r
         ///	inner join students s on r.Pidm = s.Pidm
         ///where 
         ///	r.Termcode =@Term
@@ -160,7 +160,6 @@ namespace StudentService {
         ///	
         ///select ci.InstructorId as Id
         ///,i.FirstName
-        ///,i.Mi
         ///,i.LastName
         ///,i.LoginId
         ///,i.Email
@@ -214,7 +213,7 @@ namespace StudentService {
         ///,s.LoginId
         ///,s.Email
         ///,r.Crn
-        ///from Roster r
+        ///from CourseRoster r
         ///	inner join Courses c on (r.Crn = c.Crn AND r.TermCode = c.TermCode)
         ///	inner join students s on r.Pidm = s.Pidm
         ///where 
@@ -224,14 +223,13 @@ namespace StudentService {
         ///
         ///select ci.InstructorId as Id
         ///,i.FirstName
-        ///,i.Mi
         ///,i.LastName
         ///,i.LoginId
         ///,i.Email
         ///,c.Crn
         ///from CourseInstructors ci
         ///	inner join Courses c on (ci.Crn = c.Crn AND ci.TermCode = c.TermCode)
-        ///	inner join Instructo [rest of string was truncated]&quot;;.
+        ///	inner join Instructor [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string RosterSubjectQuery {
             get {

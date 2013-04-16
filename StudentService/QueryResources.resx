@@ -194,7 +194,7 @@ WHERE
 ,s.LastName
 ,s.LoginId
 ,s.Email
-from Roster r
+from CourseRoster r
 	inner join students s on r.Pidm = s.Pidm
 where 
 	r.Termcode =@Term
@@ -202,7 +202,6 @@ where
 	
 select ci.InstructorId as Id
 ,i.FirstName
-,i.Mi
 ,i.LastName
 ,i.LoginId
 ,i.Email
@@ -250,7 +249,7 @@ where
 ,s.LoginId
 ,s.Email
 ,r.Crn
-from Roster r
+from CourseRoster r
 	inner join Courses c on (r.Crn = c.Crn AND r.TermCode = c.TermCode)
 	inner join students s on r.Pidm = s.Pidm
 where 
@@ -260,7 +259,6 @@ where
 
 select ci.InstructorId as Id
 ,i.FirstName
-,i.Mi
 ,i.LastName
 ,i.LoginId
 ,i.Email
