@@ -23,6 +23,8 @@ namespace StudentService.Controllers
             }
         }
 
+        // GET: /Student/Course?term=201303&subject
+
         // GET: /Student/Courses?department=wxyz&term=201301&key=1234
         public ActionResult Courses(string department, string term)
         {
@@ -49,8 +51,8 @@ namespace StudentService.Controllers
             }
         }
 
-        // GET: /Student/CoursesBySubject?term=201301&subject=ENL&courseNumber=262&key=1234
-        public ActionResult CoursesBySubject(string term, string subject, string courseNumber)
+        // GET: /Student/Course?term=201301&subject=ENL&courseNumber=262&key=1234
+        public ActionResult Course(string term, string subject, string courseNumber)
         {
             if (string.IsNullOrWhiteSpace(term) || string.IsNullOrWhiteSpace(subject) || string.IsNullOrWhiteSpace(courseNumber))
             {
@@ -72,7 +74,7 @@ namespace StudentService.Controllers
                                            .Select(y => new Section(y.First()) { Classtimes = y.Select(z => new Classtime(z)) })
                                   };
 
-                return new JsonNetResult(courses);
+                return new JsonNetResult(courses.FirstOrDefault());
             }
         }
 
