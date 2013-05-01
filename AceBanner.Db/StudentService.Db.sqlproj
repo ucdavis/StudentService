@@ -85,6 +85,7 @@
     <Build Include="dbo\Tables\Terms.sql" />
     <Build Include="dbo\Stored Procedures\usp_DownloadTerms.sql" />
     <Build Include="dbo\Stored Procedures\usp_CleanupMinimumEnrollment.sql" />
+    <Build Include="dbo\Stored Procedures\usp_DownloadUnex.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="SchemaCompare\Clamps.scmp" />

@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [dbo].[Students] (
     [Pidm]      INT          NOT NULL,
-    [StudentId] INT          NOT NULL,
+    [StudentId] INT          NULL,
     [FirstName] VARCHAR (50) NOT NULL,
     [LastName]  VARCHAR (50) NOT NULL,
     [LoginId]   VARCHAR (20) NOT NULL,
