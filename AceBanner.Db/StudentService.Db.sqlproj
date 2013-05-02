@@ -65,6 +65,7 @@
     <Folder Include="dbo\Functions\" />
     <Folder Include="dbo\Stored Procedures\" />
     <Folder Include="SchemaCompare" />
+    <Folder Include="dbo\Views" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\Departments.sql" />
@@ -86,6 +87,8 @@
     <Build Include="dbo\Stored Procedures\usp_DownloadTerms.sql" />
     <Build Include="dbo\Stored Procedures\usp_CleanupMinimumEnrollment.sql" />
     <Build Include="dbo\Stored Procedures\usp_DownloadUnex.sql" />
+    <Build Include="dbo\Tables\DepartmentOverrides.sql" />
+    <Build Include="dbo\Views\vCourses.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="SchemaCompare\clamps.scmp" />
