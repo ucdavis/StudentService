@@ -74,7 +74,7 @@ namespace StudentService {
         ///	, s.EndTime
         ///	, s.DaysOfWeek
         ///FROM         
-        ///	Courses c 
+        ///	vCourses c 
         ///	INNER JOIN Sections s
         ///        ON c.TermCode = s.TermCode 
         ///            AND c.Crn = s.Crn
@@ -102,7 +102,7 @@ namespace StudentService {
         ///	, s.EndTime
         ///	, s.DaysOfWeek
         ///FROM         
-        ///	Courses c 
+        ///	vCourses c 
         ///	INNER JOIN Sections s
         ///        ON c.TermCode = s.TermCode 
         ///            AND c.Crn = s.Crn
@@ -131,7 +131,7 @@ namespace StudentService {
         ///	, s.EndTime
         ///	, s.DaysOfWeek
         ///FROM         
-        ///	Courses c 
+        ///	vCourses c 
         ///	INNER JOIN Sections s
         ///        ON c.TermCode = s.TermCode 
         ///            AND c.Crn = s.Crn
@@ -180,7 +180,7 @@ namespace StudentService {
         ///,s.Email
         ///,r.Crn
         ///from CourseRoster r
-        ///	inner join Courses c on (r.Crn = c.Crn AND r.TermCode = c.TermCode)
+        ///	inner join vCourses c on (r.Crn = c.Crn AND r.TermCode = c.TermCode)
         ///	inner join students s on r.LoginId = s.LoginId
         ///where 
         ///	r.TermCode = @Term	
@@ -193,10 +193,9 @@ namespace StudentService {
         ///,i.Email
         ///,c.Crn
         ///from CourseInstructors ci
-        ///	inner join Courses c on (ci.Crn = c.Crn AND ci.TermCode = c.TermCode)
+        ///	inner join vCourses c on (ci.Crn = c.Crn AND ci.TermCode = c.TermCode)
         ///	inner join Instructors i on ci.LoginId = i.LoginId
-        ///where
-        /// [rest of string was truncated]&quot;;.
+        ///where [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string RostersSubjectQuery {
             get {
@@ -211,7 +210,7 @@ namespace StudentService {
         ///,s.Email
         ///,r.Crn
         ///from CourseRoster r
-        ///	inner join Courses c on (r.Crn = c.Crn AND r.TermCode = c.TermCode)
+        ///	inner join vCourses c on (r.Crn = c.Crn AND r.TermCode = c.TermCode)
         ///	inner join students s on r.LoginId = s.LoginId
         ///where 
         ///	r.TermCode = @Term	
@@ -224,9 +223,9 @@ namespace StudentService {
         ///,i.Email
         ///,c.Crn
         ///from CourseInstructors ci
-        ///	inner join Courses c on (ci.Crn = c.Crn AND ci.TermCode = c.TermCode)
+        ///	inner join vCourses c on (ci.Crn = c.Crn AND ci.TermCode = c.TermCode)
         ///	inner join Instructors i on ci.LoginId = i.LoginId
-        ///wh [rest of string was truncated]&quot;;.
+        /// [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string RosterSubjectQuery {
             get {
