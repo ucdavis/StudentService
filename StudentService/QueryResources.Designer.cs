@@ -147,24 +147,22 @@ namespace StudentService {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to select s.Pidm as Id
+        ///   Looks up a localized string similar to select s.LoginId
         ///,s.FirstName
         ///,s.LastName
-        ///,s.LoginId
         ///,s.Email
         ///from CourseRoster r
-        ///	inner join students s on r.Pidm = s.Pidm
+        ///	inner join students s on r.loginid = s.loginid
         ///where 
         ///	r.Termcode =@Term
         ///	AND r.Crn =@Crn
         ///	
-        ///select ci.InstructorId as Id
+        ///select ci.LoginId
         ///,i.FirstName
         ///,i.LastName
-        ///,i.LoginId
         ///,i.Email
         ///from CourseInstructors ci
-        ///	inner join Instructors i on ci.InstructorId = i.Id
+        ///	inner join Instructors i on ci.loginid = i.loginid
         ///where
         ///	ci.TermCode = @Term
         ///	AND ci.Crn = @Crn.
@@ -176,29 +174,29 @@ namespace StudentService {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to select s.Pidm as Id
+        ///   Looks up a localized string similar to select s.LoginId
         ///,s.FirstName
         ///,s.LastName
-        ///,s.LoginId
         ///,s.Email
         ///,r.Crn
         ///from CourseRoster r
         ///	inner join Courses c on (r.Crn = c.Crn AND r.TermCode = c.TermCode)
-        ///	inner join students s on r.Pidm = s.Pidm
+        ///	inner join students s on r.LoginId = s.LoginId
         ///where 
         ///	r.TermCode = @Term	
         ///	AND c.Subject = @Subject
         ///	AND c.CourseNumb in ({0})
         ///
-        ///select ci.InstructorId as Id
+        ///select i.LoginId
         ///,i.FirstName
         ///,i.LastName
-        ///,i.LoginId
         ///,i.Email
         ///,c.Crn
         ///from CourseInstructors ci
         ///	inner join Courses c on (ci.Crn = c.Crn AND ci.TermCode = c.TermCode)
-        ///	inner join Instructors i o [rest of string was truncated]&quot;;.
+        ///	inner join Instructors i on ci.LoginId = i.LoginId
+        ///where
+        /// [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string RostersSubjectQuery {
             get {
@@ -207,29 +205,28 @@ namespace StudentService {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to select s.Pidm as Id
+        ///   Looks up a localized string similar to select s.LoginId
         ///,s.FirstName
         ///,s.LastName
-        ///,s.LoginId
         ///,s.Email
         ///,r.Crn
         ///from CourseRoster r
         ///	inner join Courses c on (r.Crn = c.Crn AND r.TermCode = c.TermCode)
-        ///	inner join students s on r.Pidm = s.Pidm
+        ///	inner join students s on r.LoginId = s.LoginId
         ///where 
         ///	r.TermCode = @Term	
         ///	AND c.Subject = @Subject
         ///	AND c.CourseNumb = @CourseNumb
         ///
-        ///select ci.InstructorId as Id
+        ///select i.LoginId
         ///,i.FirstName
         ///,i.LastName
-        ///,i.LoginId
         ///,i.Email
         ///,c.Crn
         ///from CourseInstructors ci
         ///	inner join Courses c on (ci.Crn = c.Crn AND ci.TermCode = c.TermCode)
-        ///	inner join Instructor [rest of string was truncated]&quot;;.
+        ///	inner join Instructors i on ci.LoginId = i.LoginId
+        ///wh [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string RosterSubjectQuery {
             get {
