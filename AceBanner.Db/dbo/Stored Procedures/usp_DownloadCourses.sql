@@ -29,9 +29,9 @@ BEGIN
 						group by scbcrse_subj_code, scbcrse_crse_numb
 					) maxscb on SCBCRSE_SUBJ_CODE = maxscb.subj and SCBCRSE_CRSE_NUMB = maxscb.crse and SCBCRSE_EFF_TERM = maxscb.term
 			) course on ssbsect_subj_code = scbcrse_subj_code and ssbsect_crse_numb = scbcrse_crse_numb
-		where ssbsect_term_code = ( select min(stvterm_code) from stvterm
-									where stvterm_end_date > sysdate
-									  and stvterm_trmt_code in (''Q'', ''W'') 
+		where ssbsect_term_code in ( select stvterm_code from stvterm
+									where stvterm_start_date < sysdate
+									  and stvterm_end_date > sysdate
 								  )
 		  and course.scbcrse_dept_code is not null
 	')

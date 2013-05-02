@@ -9,7 +9,7 @@ declare @tmp table (
 	crn int,
 	firstname varchar(50),
 	lastname varchar(50),
-	instructorid int,
+	pidm int,
 	loginid varchar(20),
 	email varchar(50),
 	primaryind bit
@@ -30,10 +30,11 @@ select * from openquery (sis, '
 			where goremal_status_ind = ''A''
 				and goremal_emal_code = ''UCD''
 		) Emails on Emails.pidm = spriden_pidm
-	where zsvinst_term_code = (
-		select min(stvterm_code) from stvterm
-		where stvterm_end_date > sysdate
-			and stvterm_trmt_code in (''Q'', ''W'') 
+	where zsvinst_term_code in (
+		select stvterm_code from stvterm
+		where stvterm_start_date < sysdate
+		  and stvterm_end_date > sysdate
+			
 	  )
 	  and zsvinst_id is not null
 	  and wormoth_acct_type = ''Z''
@@ -43,10 +44,10 @@ select * from openquery (sis, '
 ')
 
 insert into Instructors
-select distinct instructorid, firstname, lastname, loginid, email from @tmp
+select distinct loginid, firstname, lastname, email, pidm from @tmp
 
 insert into CourseInstructors
-select newid(), termcode, crn, instructorid, primaryind
+select termcode, crn, loginid, primaryind
 from @tmp
 
 RETURN 0

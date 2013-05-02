@@ -88,9 +88,6 @@
     <Build Include="dbo\Stored Procedures\usp_DownloadUnex.sql" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="SchemaCompare\Clamps.scmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <RefactorLog Include="AceBanner.Db.refactorlog" />
+    <None Include="SchemaCompare\clamps.scmp" />
   </ItemGroup>
 </Project>

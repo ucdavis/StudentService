@@ -19,11 +19,11 @@ AS
 		from myweb_user.ext_course_evals
 	')
 
-	insert into students (pidm, firstname, lastname, loginid, email) 
-	select distinct pidm, firstname, lastname, loginid, email from @students
+	insert into students (pidm, firstname, lastname, loginid, email, [type]) 
+	select distinct pidm, firstname, lastname, loginid, email, 'U' from @students
 
-	insert into CourseRoster (pidm, crn, termcode)
-	select distinct pidm, crn, term from @students
+	insert into CourseRoster (LoginId, crn, termcode)
+	select distinct loginid, crn, term from @students
 
 	--merge students as t
 	--using (select distinct pidm, firstname, lastname, loginid, email from @students) as s

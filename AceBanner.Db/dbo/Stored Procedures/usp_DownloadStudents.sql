@@ -14,10 +14,11 @@ BEGIN
     truncate table Students
 
 	insert into Students
-	select *
+	select loginid, firstname, lastname, pidm, studentid, email, 'B'
 	from openquery (sis, '
-		select spriden_pidm, spriden_id, spriden_first_name, spriden_last_name
-			, lower(wormoth_login_id) loginid, emails.address
+		select lower(wormoth_login_id) as loginid 
+			, spriden_first_name as firstname, spriden_last_name as lastname, spriden_pidm as pidm, spriden_id as studentid
+			, emails.address as email
 		from spriden
 			inner join wormoth on spriden_pidm = wormoth_pidm
 			left outer join (
@@ -30,9 +31,9 @@ BEGIN
 		  and spriden_pidm in (
 				select sfrstcr_pidm
 				from sfrstcr
-				where sfrstcr_term_code = ( select min(stvterm_code) from stvterm
-											where stvterm_end_date > sysdate
-											  and stvterm_trmt_code in (''Q'', ''W'') 
+				where sfrstcr_term_code in ( select stvterm_code from stvterm
+											where stvterm_start_date < sysdate
+											  and stvterm_end_date > sysdate
 										  )
 				  and sfrstcr_rsts_code in (''RE'', ''RW'')
 		  )

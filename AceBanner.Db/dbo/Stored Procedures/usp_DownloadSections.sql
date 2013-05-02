@@ -26,9 +26,9 @@ BEGIN
 			, nvl(ssrmeet_mon_day, '''') || nvl(ssrmeet_tue_day, '''') || nvl(ssrmeet_wed_day, '''') || nvl(ssrmeet_thu_day, '''') || nvl(ssrmeet_fri_day, '''') daysofweek
 		from ssrmeet
 			inner join stvschd on ssrmeet_schd_code = stvschd_code
-		where ssrmeet_term_code = ( select min(stvterm_code) from stvterm
-										where stvterm_end_date > sysdate
-										  and stvterm_trmt_code in (''Q'', ''W'') 
+		where ssrmeet_term_code in ( select stvterm_code from stvterm
+										where stvterm_start_date < sysdate
+										  and stvterm_end_date > sysdate
 									  )
 	')
 

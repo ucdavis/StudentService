@@ -15,12 +15,16 @@ BEGIN
 
     insert into CourseRoster
 	select * from openquery (sis, '
-		select sfrstcr_term_code, sfrstcr_crn, sfrstcr_pidm
+		select sfrstcr_term_code, sfrstcr_crn, lower(wormoth_login_id) loginid
 		from sfrstcr
-		where sfrstcr_term_code = ( select min(stvterm_code) from stvterm
-									where stvterm_end_date > sysdate
-									  and stvterm_trmt_code in (''Q'', ''W'') 
-								  )
-		  and sfrstcr_rsts_code in (''RE'', ''RW'')
+			inner join wormoth on sfrstcr_pidm = wormoth_pidm
+		where sfrstcr_term_code in ( select stvterm_code from stvterm
+									where stvterm_start_date < sysdate
+									  and stvterm_end_date > sysdate
+									)
+			and sfrstcr_rsts_code in (''RE'', ''RW'')
+			and wormoth_acct_type = ''Z''
+			and wormoth_acct_status = ''A''
+			and wormoth_activity_date = ( select max(wormoth_activity_date ) from wormoth iw where iw.WORMOTH_PIDM = wormoth.wormoth_pidm and iw.wormoth_acct_type = ''Z'' and iw.wormoth_acct_status = ''A'' )
 	')
 END

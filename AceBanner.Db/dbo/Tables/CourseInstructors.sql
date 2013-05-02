@@ -1,8 +1,8 @@
 ﻿CREATE TABLE [dbo].[CourseInstructors]
 (
-	[Id] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY, 
     [TermCode] INT NOT NULL, 
     [Crn] INT NOT NULL, 
-    [InstructorId] INT NULL, 
-    [Primary] BIT NOT NULL DEFAULT 0
+    [LoginId] VARCHAR(20) NOT NULL, 
+    [Primary] BIT NOT NULL DEFAULT 0, 
+    CONSTRAINT [PK_CourseInstructors] PRIMARY KEY ([TermCode], [Crn], [LoginId])
 )
