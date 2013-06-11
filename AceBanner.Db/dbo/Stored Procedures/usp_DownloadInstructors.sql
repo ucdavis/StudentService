@@ -32,9 +32,8 @@ select * from openquery (sis, '
 		) Emails on Emails.pidm = spriden_pidm
 	where zsvinst_term_code in (
 		select stvterm_code from stvterm
-		where stvterm_start_date < sysdate
-		  and stvterm_end_date > sysdate
-			
+		where (stvterm_start_date < sysdate and stvterm_end_date > sysdate)
+		   or (stvterm_start_date < sysdate and stvterm_end_date > sysdate - 14)
 	  )
 	  and zsvinst_id is not null
 	  and wormoth_acct_type = ''Z''
