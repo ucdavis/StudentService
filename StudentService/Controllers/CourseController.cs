@@ -72,5 +72,20 @@ namespace StudentService.Controllers
             }
         }
 
+        // GET: /Course/GradesRemaining?term=201306&crns=60152&crns=60170&key=1234
+        public ActionResult GradesRemaining(string term, string[] crns)
+        {
+            if (crns == null || !crns.Any() || string.IsNullOrWhiteSpace(term))
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest, "Neither Course Nubmers nor Term can be empty");
+            }
+
+            using (var db = new DbManager())
+            {
+                var courses = db.Connection.Query("SELECT TermCode, Crn, GradesOutstandingCount, Gradable FROM Courses WHERE termCode = @term AND crn in @crns", new { term, crns });
+
+                return new JsonNetResult(courses);
+            }
+        }
     }
 }
