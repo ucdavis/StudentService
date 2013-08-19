@@ -16,10 +16,25 @@ BEGIN
 
     insert into Courses
 	select distinct ssbsect_term_code, ssbsect_crn, ssbsect_subj_code, ssbsect_crse_numb
-		, ssbsect_seq_numb, scbcrse_title, scbcrse_dept_code
+		, ssbsect_seq_numb, scbcrse_title, scbcrse_dept_code, students_needing_grades, ssbsect_gradable_ind
 	from openquery (sis, '
-		select ssbsect_term_code, ssbsect_crn, ssbsect_subj_code, ssbsect_crse_numb, ssbsect_seq_numb
-			, course.scbcrse_dept_code, course.scbcrse_title
+		select ssbsect_term_code
+			, ssbsect_crn
+			, ssbsect_subj_code
+			, ssbsect_crse_numb
+			, ssbsect_seq_numb
+			, course.scbcrse_dept_code
+			, course.scbcrse_title
+			, (
+				select count(*)
+  				from sfrstcr
+					where sfrstcr_crn = ssbsect_crn 
+						and sfrstcr_term_code = ssbsect_term_code
+						and sfrstcr_rsts_code =''RE''
+						and sfrstcr_grde_code is null
+						and ssbsect_gradable_ind = ''Y''
+			) students_needing_grades
+			, ssbsect_gradable_ind
 		from ssbsect 
 			inner join (
 				select scbcrse_subj_code, scbcrse_crse_numb, scbcrse_dept_code, scbcrse_title, scbcrse_eff_term
