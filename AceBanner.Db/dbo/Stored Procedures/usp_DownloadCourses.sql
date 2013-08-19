@@ -1,9 +1,10 @@
 ﻿-- =============================================
--- Author:		<Author,,Name>
--- Create date: <Create Date,,>
--- Description:	<Description,,>
+-- Author:		Alan Lai
+-- Create date: 
+-- Description:	Download all courses for the active term, or recently closed term.  
+-- If the term has opened in the last 14 days, don't yet download course information (sysdate - 14).
 -- =============================================
-CREATE PROCEDURE usp_DownloadCourses
+CREATE PROCEDURE [dbo].[usp_DownloadCourses]
 	
 AS
 BEGIN
@@ -30,8 +31,8 @@ BEGIN
 					) maxscb on SCBCRSE_SUBJ_CODE = maxscb.subj and SCBCRSE_CRSE_NUMB = maxscb.crse and SCBCRSE_EFF_TERM = maxscb.term
 			) course on ssbsect_subj_code = scbcrse_subj_code and ssbsect_crse_numb = scbcrse_crse_numb
 		where ssbsect_term_code in ( select stvterm_code from stvterm
-									where (stvterm_start_date < sysdate and stvterm_end_date > sysdate)
-									   or (stvterm_start_date < sysdate and stvterm_end_date > sysdate - 14)
+									where (stvterm_start_date < (sysdate - 14) and stvterm_end_date > sysdate)
+									   or (stvterm_start_date < (sysdate - 14) and stvterm_end_date > (sysdate - 14))
 								  )
 		  and course.scbcrse_dept_code is not null
 	')
