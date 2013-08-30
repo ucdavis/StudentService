@@ -156,6 +156,17 @@ namespace StudentService {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to select [Subject], Departments.Name from courses
+        ///inner join Departments on DepartmentId = Departments.Id
+        ///where crn = @crn.
+        /// </summary>
+        internal static string DepartmentCrnQuery {
+            get {
+                return ResourceManager.GetString("DepartmentCrnQuery", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to select s.LoginId
         ///,s.FirstName
         ///,s.LastName

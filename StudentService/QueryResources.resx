@@ -278,4 +278,10 @@ where
     <value>select Id, Name from Departments where Id = @subject</value>
     <comment>Queries for a specific department</comment>
   </data>
+  <data name="DepartmentCrnQuery" xml:space="preserve">
+    <value>select [Subject], Departments.Name from courses
+inner join Departments on DepartmentId = Departments.Id
+where crn = @crn</value>
+    <comment>Query for a department by looking for a course with a given CRN</comment>
+  </data>
 </root>
