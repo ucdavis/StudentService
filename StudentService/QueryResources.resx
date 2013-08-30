@@ -274,4 +274,8 @@ where
   FROM [TermCodes]</value>
     <comment>Queries the termcode table</comment>
   </data>
+  <data name="DeparmentFindQuery" xml:space="preserve">
+    <value>select Id, Name from Departments where Id = @subject</value>
+    <comment>Queries for a specific department</comment>
+  </data>
 </root>
