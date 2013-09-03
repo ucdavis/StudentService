@@ -20,7 +20,7 @@ namespace StudentService.Controllers
 
             using (var db = new DbManager())
             {
-                var departments = db.Connection.Query(QueryResources.DeparmentFindQuery, new { id = subject });
+                var departments = db.Connection.Query(QueryResources.DeparmentFindQuery, new {subject});
                 return new JsonNetResult(departments.FirstOrDefault());
             }
         }
