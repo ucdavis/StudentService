@@ -3,7 +3,7 @@
 -- Create date: <Create Date,,>
 -- Description:	<Description,,>
 -- =============================================
-CREATE PROCEDURE usp_DownloadCourseRoster
+CREATE PROCEDURE [dbo].[usp_DownloadCourseRoster]
 	
 AS
 BEGIN
@@ -20,7 +20,7 @@ BEGIN
 			inner join wormoth on sfrstcr_pidm = wormoth_pidm
 		where sfrstcr_term_code in ( select stvterm_code from stvterm
 									where (stvterm_start_date < sysdate and stvterm_end_date > sysdate)
-									   or (stvterm_start_date < sysdate and stvterm_end_date > sysdate - 14)
+									   or (stvterm_start_date < sysdate and stvterm_end_date > sysdate - 1)
 									)
 			and sfrstcr_rsts_code in (''RE'', ''RW'')
 			and wormoth_acct_type = ''Z''
