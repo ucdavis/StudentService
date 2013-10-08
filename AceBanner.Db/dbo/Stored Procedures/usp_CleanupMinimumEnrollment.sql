@@ -5,7 +5,7 @@ AS
 	declare @crns table (termcode int, crn int)
 
 	insert into @crns (termcode, crn)
-	select termcode,crn from courseroster group by termcode, crn having count(loginid) < 5 
+	select termcode,crn from courseroster group by termcode, crn having count(loginid) < 1
 
 	insert into @crns (termcode, crn)
 	select c.TermCode, c.Crn from Courses c left outer join CourseRoster cr on c.TermCode = cr.Termcode and c.Crn = cr.Crn where cr.LoginId is null
