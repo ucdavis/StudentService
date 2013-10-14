@@ -156,7 +156,7 @@ namespace StudentService {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to select [Subject], Departments.Name from courses
+        ///   Looks up a localized string similar to select Departments.Id, Departments.Name from courses
         ///inner join Departments on DepartmentId = Departments.Id
         ///where crn = @crn.
         /// </summary>
