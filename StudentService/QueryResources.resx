@@ -279,8 +279,9 @@ where
     <comment>Queries for a specific department</comment>
   </data>
   <data name="DepartmentCrnQuery" xml:space="preserve">
-    <value>select Departments.Id, Departments.Name from courses
-inner join Departments on DepartmentId = Departments.Id
+    <value>select ISNULL(Departments.Id, DepartmentOverrides.DepartmentId) as Id, ISNULL(Departments.Name, DepartmentOverrides.DepartmentId + ' Department') as Name from vCourses
+left outer join Departments on Departments.Id = vCourses.departmentid
+left outer join DepartmentOverrides on DepartmentOverrides.DepartmentId = vCourses.departmentid
 where crn = @crn</value>
     <comment>Query for a department by looking for a course with a given CRN</comment>
   </data>

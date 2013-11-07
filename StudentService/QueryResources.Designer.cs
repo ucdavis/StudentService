@@ -156,8 +156,9 @@ namespace StudentService {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to select Departments.Id, Departments.Name from courses
-        ///inner join Departments on DepartmentId = Departments.Id
+        ///   Looks up a localized string similar to select ISNULL(Departments.Id, DepartmentOverrides.DepartmentId) as Id, ISNULL(Departments.Name, DepartmentOverrides.DepartmentId + &apos; Department&apos;) as Name from vCourses
+        ///left outer join Departments on Departments.Id = vCourses.departmentid
+        ///left outer join DepartmentOverrides on DepartmentOverrides.DepartmentId = vCourses.departmentid
         ///where crn = @crn.
         /// </summary>
         internal static string DepartmentCrnQuery {
