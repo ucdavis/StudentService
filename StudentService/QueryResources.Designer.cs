@@ -147,7 +147,10 @@ namespace StudentService {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to select Id, Name from Departments where Id = @subject.
+        ///   Looks up a localized string similar to select distinct departmentid as Id, ISNULL(Departments.Name, departmentid + &apos; Department&apos;)  as Name
+        ///from vCourses
+        ///left outer join Departments on Departments.Id = vCourses.departmentid
+        ///where departmentid = @subject.
         /// </summary>
         internal static string DeparmentFindQuery {
             get {

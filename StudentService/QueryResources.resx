@@ -275,7 +275,10 @@ where
     <comment>Queries the termcode table</comment>
   </data>
   <data name="DeparmentFindQuery" xml:space="preserve">
-    <value>select Id, Name from Departments where Id = @subject</value>
+    <value>select distinct departmentid as Id, ISNULL(Departments.Name, departmentid + ' Department')  as Name
+from vCourses
+left outer join Departments on Departments.Id = vCourses.departmentid
+where departmentid = @subject</value>
     <comment>Queries for a specific department</comment>
   </data>
   <data name="DepartmentCrnQuery" xml:space="preserve">
