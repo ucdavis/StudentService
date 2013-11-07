@@ -147,7 +147,10 @@ namespace StudentService {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to select Id, Name from Departments where Id = @subject.
+        ///   Looks up a localized string similar to select distinct departmentid as Id, ISNULL(Departments.Name, departmentid + &apos; Department&apos;)  as Name
+        ///from vCourses
+        ///left outer join Departments on Departments.Id = vCourses.departmentid
+        ///where departmentid = @subject.
         /// </summary>
         internal static string DeparmentFindQuery {
             get {
@@ -156,8 +159,9 @@ namespace StudentService {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to select [Subject], Departments.Name from courses
-        ///inner join Departments on DepartmentId = Departments.Id
+        ///   Looks up a localized string similar to select ISNULL(Departments.Id, DepartmentOverrides.DepartmentId) as Id, ISNULL(Departments.Name, DepartmentOverrides.DepartmentId + &apos; Department&apos;) as Name from vCourses
+        ///left outer join Departments on Departments.Id = vCourses.departmentid
+        ///left outer join DepartmentOverrides on DepartmentOverrides.DepartmentId = vCourses.departmentid
         ///where crn = @crn.
         /// </summary>
         internal static string DepartmentCrnQuery {
