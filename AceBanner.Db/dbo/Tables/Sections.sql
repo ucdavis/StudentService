@@ -14,8 +14,16 @@
 
 
 
+
+
 GO
 CREATE NONCLUSTERED INDEX [Sections_TermCode_CVIDX]
     ON [dbo].[Sections]([TermCode] ASC)
     INCLUDE([Crn], [SectionType], [StartDate], [EndDate], [StartTime], [EndTime], [DaysOfWeek]);
+
+
+GO
+CREATE NONCLUSTERED INDEX [Sections_TermcodeCrn_CVIDX]
+    ON [dbo].[Sections]([TermCode] ASC, [Crn] ASC)
+    INCLUDE([SectionType], [StartDate], [EndDate], [StartTime], [EndTime], [DaysOfWeek]);
 

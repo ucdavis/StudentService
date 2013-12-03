@@ -17,7 +17,14 @@
 
 
 
+
+
 GO
 CREATE NONCLUSTERED INDEX [Courses_TermCodeSubjectCourseNumb_IDX]
     ON [dbo].[Courses]([TermCode] ASC, [Subject] ASC, [CourseNumb] ASC);
+
+
+GO
+CREATE NONCLUSTERED INDEX [Courses_TermcodeCoursenumb_IDX]
+    ON [dbo].[Courses]([TermCode] ASC, [CourseNumb] ASC);
 
