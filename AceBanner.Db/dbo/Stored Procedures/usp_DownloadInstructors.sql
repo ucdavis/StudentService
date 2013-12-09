@@ -33,7 +33,7 @@ select * from openquery (sis, '
 	where zsvinst_term_code in (
 		select stvterm_code from stvterm
 		where (stvterm_start_date < sysdate and stvterm_end_date > sysdate)
-		   or (stvterm_start_date < sysdate and stvterm_end_date > sysdate - 1)
+		   or (stvterm_start_date < sysdate and stvterm_end_date > sysdate - 21)
 	  )
 	  and zsvinst_id is not null
 	  and wormoth_acct_type = ''Z''
