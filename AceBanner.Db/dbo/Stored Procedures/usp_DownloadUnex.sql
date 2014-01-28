@@ -21,9 +21,11 @@ AS
 
 	insert into students (pidm, firstname, lastname, loginid, email, [type]) 
 	select distinct pidm, firstname, lastname, loginid, email, 'U' from @students
+	where loginid not in (select loginid from Students)
 
 	insert into CourseRoster (LoginId, crn, termcode)
 	select distinct loginid, crn, term from @students
+	where loginid not in (select loginid from CourseRoster where CourseRoster.Crn = [@students].crn and CourseRoster.Termcode = [@students].term)
 
 	--merge students as t
 	--using (select distinct pidm, firstname, lastname, loginid, email from @students) as s
