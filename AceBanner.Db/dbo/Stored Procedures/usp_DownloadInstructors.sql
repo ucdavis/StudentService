@@ -46,7 +46,7 @@ insert into Instructors
 select distinct loginid, firstname, lastname, email, pidm from @tmp
 
 insert into CourseInstructors
-select termcode, crn, loginid, primaryind
+select distinct termcode, crn, loginid, primaryind
 from @tmp
 
 RETURN 0
