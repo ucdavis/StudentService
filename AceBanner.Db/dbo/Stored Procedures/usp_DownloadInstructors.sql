@@ -20,7 +20,7 @@ select * from openquery (sis, '
 	select zsvinst_term_code, zsvinst_crn
 		, spriden_first_name, spriden_last_name, spriden_pidm
 		, lower(wormoth_login_id) loginid, emails.address
-		, (case when zsvinst_primary_ind = ''Y'' then 0 else 0 end) as primaryind
+		, (case when zsvinst_primary_ind = ''Y'' then 1 else 0 end) as primaryind
 	from zsvinst
 		inner join spriden on zsvinst_id = spriden_id
 		left outer join wormoth on wormoth_pidm = spriden_pidm
