@@ -46,7 +46,27 @@ insert into Instructors
 select distinct loginid, firstname, lastname, email, pidm from @tmp
 
 insert into CourseInstructors
-select distinct termcode, crn, loginid, primaryind
-from @tmp
+SELECT
+        [termcode]
+	,[crn]
+	,[loginid]
+	,[primaryind]
+	  FROM (
+		SELECT 
+			*, 
+			ROW_NUMBER() OVER (
+				PARTITION BY 
+					[termcode]
+					,[crn]
+					,[loginid] 
+				ORDER BY 
+					[primaryind] DESC) AS RowNumber
+		FROM @tmp
+	  ) source
+WHERE RowNumber = 1
+ORDER BY 
+	[termcode]
+      	,[crn]
+      	,[loginid]
 
 RETURN 0
