@@ -129,7 +129,7 @@ namespace StudentService.Controllers
             }
         }
 
-        // GET: /Student/SearchStudentByLogin
+        // GET: /Student/SearchStudentByLogin?login=adam
         /// <summary>
         /// An API for use with cloud-based Commencement to search for a student
         /// by login that is not already present in the list of students.
@@ -161,7 +161,7 @@ namespace StudentService.Controllers
             }
         }
 
-        // GET: /Student/SearchStudent
+        // GET: /Student/SearchStudent?studentid=012345678
         /// <summary>
         /// An API for use with cloud-based Commencement to search for a student
         /// by Student ID that is not already present in the list of students.
