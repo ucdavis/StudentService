@@ -177,6 +177,7 @@
     <Compile Include="Controllers\DepartmentController.cs" />
     <Compile Include="Controllers\MonitorController.cs" />
     <Compile Include="Helpers\AllowOrigin.cs" />
+    <Compile Include="Helpers\CommencementDbManager.cs" />
     <Compile Include="Helpers\DbManager.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SampleController.cs" />
@@ -186,6 +187,7 @@
     </Compile>
     <Compile Include="Helpers\ValidateKeyAttribute.cs" />
     <Compile Include="Models\Classtime.cs" />
+    <Compile Include="Models\Student.cs" />
     <Compile Include="Models\Course.cs" />
     <Compile Include="Models\Person.cs" />
     <Compile Include="Models\CourseRoster.cs" />
@@ -407,9 +409,6 @@
     <Content Include="Content\DataTables-1.9.4\extras\TableTools\media\images\psd\file_types.psd" />
     <Content Include="Content\DataTables-1.9.4\extras\TableTools\media\images\psd\copy document.psd" />
     <Content Include="Content\DataTables-1.9.4\extras\TableTools\media\images\psd\collection.psd" />
-    <Content Include="AppSettings.config">
-      <SubType>Designer</SubType>
-    </Content>
     <None Include="Properties\PublishProfiles\Production.pubxml" />
     <None Include="Properties\PublishProfiles\Test.pubxml" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
