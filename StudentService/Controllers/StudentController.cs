@@ -147,7 +147,7 @@ namespace StudentService.Controllers
 
             using (var db = new CommencementDbManager())
             {
-                var studentQuery = db.Connection.Query(QueryResources.StudentByLoginQuery, new { @Login = login },
+                var studentQuery = db.Connection.Query<Student>(QueryResources.StudentByLoginQuery, new { @Login = login },
                     transaction: null, buffered: true, commandTimeout: 120);
 
                 var result = studentQuery.FirstOrDefault();
@@ -179,11 +179,11 @@ namespace StudentService.Controllers
 
             using (var db = new CommencementDbManager())
             {
-                var studentQuery = db.Connection.Query(QueryResources.StudentByIdQuery, 
+                var studentQuery = db.Connection.Query<Student>(QueryResources.StudentByIdQuery, 
                     new { @StudentId = studentid },
                     transaction: null, buffered: true, commandTimeout: 120);
                
-                var students = studentQuery as IList<dynamic> ?? studentQuery.ToList();
+                var students = studentQuery.ToList();
 
                 // For this we would really want back just an empty list, so we're not returning 404.
                 //if (!students.Any())
