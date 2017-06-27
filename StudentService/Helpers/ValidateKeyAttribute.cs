@@ -14,7 +14,7 @@ namespace StudentService.Helpers
         {
             var key = httpContext.Request.QueryString["key"];
             string[] tokens = WebConfigurationManager.AppSettings["secret"].Split(',');
-            return tokens.Contains(key);
+            return tokens.Contains(key, StringComparer.Ordinal);
         }
     }
 }
