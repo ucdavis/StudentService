@@ -183,13 +183,13 @@ namespace StudentService.Controllers
                     new { @StudentId = studentid },
                     transaction: null, buffered: true, commandTimeout: 120);
                
-                var students = studentQuery.ToList();
+                var student = studentQuery.FirstOrDefault();
 
                 // For this we would really want back just an empty list, so we're not returning 404.
                 //if (!students.Any())
                 //    return HttpNotFound(string.Format("Student with StudentId \"{0}\" not found", studentid));
 
-                return new JsonNetResult(new {students});
+                return new JsonNetResult(student);
             }
         }
     }    
