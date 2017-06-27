@@ -182,14 +182,14 @@ namespace StudentService.Controllers
                 var studentQuery = db.Connection.Query<Student>(QueryResources.StudentByIdQuery, 
                     new { @StudentId = studentid },
                     transaction: null, buffered: true, commandTimeout: 120);
-               
-                var student = studentQuery.FirstOrDefault();
+
+                var students = studentQuery.ToList();
 
                 // For this we would really want back just an empty list, so we're not returning 404.
                 //if (!students.Any())
                 //    return HttpNotFound(string.Format("Student with StudentId \"{0}\" not found", studentid));
 
-                return new JsonNetResult(student);
+                return new JsonNetResult(students);
             }
         }
     }    
