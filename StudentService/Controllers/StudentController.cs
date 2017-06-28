@@ -148,14 +148,9 @@ namespace StudentService.Controllers
             using (var db = new CommencementDbManager())
             {
                 var studentQuery = db.Connection.Query<Student>(QueryResources.StudentByLoginQuery, new { @Login = login },
-                    transaction: null, buffered: true, commandTimeout: 120);
+                    transaction: null, buffered: true, commandTimeout: 180);
 
-                var result = studentQuery.ToList();
-
-                if (result.Count <= 0)
-                    return HttpNotFound(string.Format("Student with login \"{0}\" not found", login));
-                    
-                var student = result;
+                var student = studentQuery.ToList();
 
                 return new JsonNetResult(student);
             }
@@ -181,13 +176,9 @@ namespace StudentService.Controllers
             {
                 var studentQuery = db.Connection.Query<Student>(QueryResources.StudentByIdQuery, 
                     new { @StudentId = studentid },
-                    transaction: null, buffered: true, commandTimeout: 120);
+                    transaction: null, buffered: true, commandTimeout: 180);
 
                 var students = studentQuery.ToList();
-
-                // For this we would really want back just an empty list, so we're not returning 404.
-                //if (!students.Any())
-                //    return HttpNotFound(string.Format("Student with StudentId \"{0}\" not found", studentid));
 
                 return new JsonNetResult(students);
             }
