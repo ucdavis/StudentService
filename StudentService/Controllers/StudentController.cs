@@ -150,9 +150,9 @@ namespace StudentService.Controllers
                 var studentQuery = db.Connection.Query<Student>(QueryResources.StudentByLoginQuery, new { @Login = login },
                     transaction: null, buffered: true, commandTimeout: 120);
 
-                var result = studentQuery.FirstOrDefault();
+                var result = studentQuery.ToList();
 
-                if (result == null)
+                if (result.Count <= 0)
                     return HttpNotFound(string.Format("Student with login \"{0}\" not found", login));
                     
                 var student = result;
