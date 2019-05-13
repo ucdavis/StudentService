@@ -19,7 +19,7 @@ BEGIN
 		from sfrstcr
 			inner join wormoth on sfrstcr_pidm = wormoth_pidm
 		where sfrstcr_term_code in ( select stvterm_code from stvterm
-									where (stvterm_start_date < sysdate and stvterm_end_date > sysdate)
+									where (stvterm_start_date < sysdate + 21 and stvterm_end_date > sysdate)
 									   or (stvterm_start_date < sysdate and stvterm_end_date > sysdate - 21)
 									)
 			and sfrstcr_rsts_code in (''RE'', ''RW'')
