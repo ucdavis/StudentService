@@ -47,7 +47,7 @@ BEGIN
 			) course on ssbsect_subj_code = scbcrse_subj_code and ssbsect_crse_numb = scbcrse_crse_numb
 		where ssbsect_term_code in ( select stvterm_code from stvterm
 									where (stvterm_start_date < sysdate + 21 and stvterm_end_date > sysdate)
-									   or (stvterm_start_date < sysdate and stvterm_end_date > (sysdate - 21))
+									   or (stvterm_start_date < sysdate and stvterm_end_date > sysdate - 21)
 								  )
 		  and course.scbcrse_dept_code is not null
 	')
