@@ -288,4 +288,12 @@ left outer join DepartmentOverrides on DepartmentOverrides.DepartmentId = vCours
 where crn = @crn</value>
     <comment>Query for a department by looking for a course with a given CRN</comment>
   </data>
+  <data name="StudentByLoginQuery" xml:space="preserve">
+    <value>EXEC dbo.usp_SearchStudentByLogin @login = @Login</value>
+    <comment>Executes  usp_SearchStudentByLogin</comment>
+  </data>
+  <data name="StudentByIdQuery" xml:space="preserve">
+    <value>EXEC dbo.usp_SearchStudent @studentid = @StudentId</value>
+    <comment>Executes usp_SearchStudent</comment>
+  </data>
 </root>

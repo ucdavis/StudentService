@@ -66,7 +66,7 @@ BEGIN
 
 	SELECT @TSQL += (SELECT [dbo].[udf_TermCodeFilterString]())
 
-	SELECT @TSQL += '			 )
+	SELECT @TSQL += '			 )                   
 		  and course.scbcrse_dept_code is not null
 	'')
 '

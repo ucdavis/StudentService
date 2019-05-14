@@ -1,4 +1,7 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
+using System.Linq;
 using System.Net;
 using System.Web.Mvc;
 using Dapper;
@@ -123,6 +126,61 @@ namespace StudentService.Controllers
                 var instructors = rosterQuery.Read().ToList();
 
                 return new JsonNetResult(new { students, instructors });
+            }
+        }
+
+        // GET: /Student/SearchStudentByLogin?login=adam
+        /// <summary>
+        /// An API for use with cloud-based Commencement to search for a student
+        /// by login that is not already present in the list of students.
+        /// Executes Commencement.dbo.usp_SearchStudentByLogin and returns
+        /// the results in a new Student object or a HTTP 404 if not found.
+        /// </summary>
+        /// <param name="login"></param>
+        /// <returns>Student</returns>
+        public ActionResult SearchStudentByLogin(string login)
+        {
+            if (string.IsNullOrWhiteSpace(login))
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest, "Student Login cannot be empty");
+            }
+
+            using (var db = new CommencementDbManager())
+            {
+                var studentQuery = db.Connection.Query<Student>(QueryResources.StudentByLoginQuery, new { @Login = login },
+                    transaction: null, buffered: true, commandTimeout: 180);
+
+                var student = studentQuery.ToList();
+
+                return new JsonNetResult(student);
+            }
+        }
+
+        // GET: /Student/SearchStudent?studentid=012345678
+        /// <summary>
+        /// An API for use with cloud-based Commencement to search for a student
+        /// by Student ID that is not already present in the list of students.
+        /// Executes Commencement.dbo.usp_SearchStudent and returns
+        /// the results in a new Student object or a HTTP 404 if not found.
+        /// </summary>
+        /// <param name="studentid"></param>
+        /// <returns>List of Students</returns>
+        public ActionResult SearchStudent(string studentid)
+        {
+            if (string.IsNullOrWhiteSpace(studentid))
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest, "StudentId cannot be empty");
+            }
+
+            using (var db = new CommencementDbManager())
+            {
+                var studentQuery = db.Connection.Query<Student>(QueryResources.StudentByIdQuery, 
+                    new { @StudentId = studentid },
+                    transaction: null, buffered: true, commandTimeout: 180);
+
+                var students = studentQuery.ToList();
+
+                return new JsonNetResult(students);
             }
         }
     }    

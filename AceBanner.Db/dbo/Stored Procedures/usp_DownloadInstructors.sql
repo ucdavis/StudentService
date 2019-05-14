@@ -63,7 +63,7 @@ BEGIN
 	SELECT @TSQL += '
 	truncate table Instructors
 	truncate table CourseInstructors
-
+                                 
 	insert into Instructors
 	select distinct 
 		loginid, firstname, lastname, email, pidm 
