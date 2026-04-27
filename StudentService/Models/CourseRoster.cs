@@ -5,5 +5,7 @@
         public int Crn { get; set; }
         public Person[] Students { get; set; }
         public Person[] Instructors { get; set; }
+
+        public Person[] TeachingAssistants { get; set; }
     }    
 }

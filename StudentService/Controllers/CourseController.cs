@@ -50,6 +50,7 @@ namespace StudentService.Controllers
 
                 var students = rosterQuery.Read().ToList();
                 var instructors = rosterQuery.Read().ToList();
+                var teachingAssistants = rosterQuery.Read().ToList();
 
                 var courses = from c in courseQuery
                               group c by new { c.Subject, c.CourseNumb }
@@ -63,7 +64,8 @@ namespace StudentService.Controllers
                                               CourseRoster = new CourseRoster()
                                               {
                                                   Students = students.Where(a => a.Crn == y.First().Crn).Select(s => new Person(s)).ToArray(),
-                                                  Instructors = instructors.Where(a => a.Crn == y.First().Crn).Select(i => new Person(i)).ToArray()
+                                                  Instructors = instructors.Where(a => a.Crn == y.First().Crn).Select(i => new Person(i)).ToArray(),
+                                                  TeachingAssistants = teachingAssistants.Where(a => a.Crn == y.First().Crn).Select(t => new Person(t)).ToArray()
                                               }
                                           })
                                   };

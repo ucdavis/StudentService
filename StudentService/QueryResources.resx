@@ -207,7 +207,17 @@ from CourseInstructors ci
 	inner join Instructors i on ci.loginid = i.loginid
 where
 	ci.TermCode = @Term
-	AND ci.Crn = @Crn</value>
+	AND ci.Crn = @Crn 
+
+select cta.LoginId
+,i.FirstName
+,i.LastName
+,i.Email
+from CourseTeachingAssistants cta
+    inner join Instructors i on cta.loginid = i.loginid
+where
+    cta.TermCode = @Term
+    AND cta.Crn = @Crn</value>
     <comment>Queries the students and instructors tables</comment>
   </data>
   <data name="RostersSubjectQuery" xml:space="preserve">
@@ -235,7 +245,20 @@ from CourseInstructors ci
 where
 	ci.TermCode = @Term
 	AND c.Subject = @Subject
-	AND c.CourseNumb in ({0})</value>
+	AND c.CourseNumb in ({0})
+
+select i.LoginId
+,i.FirstName
+,i.LastName
+,i.Email
+,c.Crn
+from CourseTeachingAssistants cta
+ inner join vCourses c on (cta.Crn = c.Crn AND cta.TermCode = c.TermCode)
+ inner join Instructors i on cta.LoginId = i.LoginId
+where
+ cta.TermCode = @Term
+ AND c.Subject = @Subject
+ AND c.CourseNumb in ({0})</value>
     <comment>Queries the roster/instructors for a set of coursenumbers with the same subject</comment>
   </data>
   <data name="RosterSubjectQuery" xml:space="preserve">
@@ -263,7 +286,20 @@ from CourseInstructors ci
 where
 	ci.TermCode = @Term
 	AND c.Subject = @Subject
-	AND c.CourseNumb = @CourseNumb</value>
+	AND c.CourseNumb = @CourseNumb
+
+select i.LoginId
+,i.FirstName
+,i.LastName
+,i.Email
+,c.Crn
+from CourseTeachingAssistants cta
+     inner join vCourses c on (cta.Crn = c.Crn AND cta.TermCode = c.TermCode)
+     inner join Instructors i on cta.LoginId = i.LoginId
+where
+     cta.TermCode = @Term
+     AND c.Subject = @Subject
+     AND c.CourseNumb = @CourseNumb</value>
     <comment>Queries the student and instructor roster across multiple courses</comment>
   </data>
   <data name="TermCodeQuery" xml:space="preserve">
