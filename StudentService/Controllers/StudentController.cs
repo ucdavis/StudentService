@@ -96,6 +96,7 @@ namespace StudentService.Controllers
                 
                 var students = rosterQuery.Read().ToList();
                 var instructors = rosterQuery.Read().ToList();
+                var teachingAssistants = rosterQuery.Read().ToList();
 
                 var courses = from c in students
                               group c by c.Crn into uniqueCourses
@@ -104,7 +105,8 @@ namespace StudentService.Controllers
                               {  
                                   Crn = uniqueCourses.Key,
                                   Students = students.Where(s => s.Crn == uniqueCourses.Key).Select(s => new Person(s)).ToArray(),
-                                  Instructors = instructors.Where(i => i.Crn == uniqueCourses.Key).Select(i => new Person(i)).ToArray()
+                                  Instructors = instructors.Where(i => i.Crn == uniqueCourses.Key).Select(i => new Person(i)).ToArray(),
+                                  TeachingAssistants = teachingAssistants.Where(t => t.Crn == uniqueCourses.Key).Select(t => new Person(t)).ToArray()
                               };
 
                 return new JsonNetResult(courses);
@@ -124,8 +126,9 @@ namespace StudentService.Controllers
 
                 var students = rosterQuery.Read().ToList();
                 var instructors = rosterQuery.Read().ToList();
+                var teachingAssistants = rosterQuery.Read().ToList();
 
-                return new JsonNetResult(new { students, instructors });
+                return new JsonNetResult(new { students, instructors, teachingAssistants });
             }
         }
 

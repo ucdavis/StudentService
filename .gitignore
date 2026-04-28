@@ -171,3 +171,7 @@ UpgradeLog.htm
 .vs/config/applicationhost.config
 .vs/StudentService/v15/Server/sqlite3/storage.ide
 .vs/StudentService/FileContentIndex/eceb488b-b093-4085-aeee-0362c2e84186.vsidx
+
+.vs/
+
+*.jfm

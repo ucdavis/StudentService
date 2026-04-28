@@ -19,7 +19,7 @@ namespace StudentService {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "18.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class QueryResources {
@@ -189,7 +189,15 @@ namespace StudentService {
         ///	inner join Instructors i on ci.loginid = i.loginid
         ///where
         ///	ci.TermCode = @Term
-        ///	AND ci.Crn = @Crn.
+        ///	AND ci.Crn = @Crn 
+        ///
+        ///select cta.LoginId
+        ///,i.FirstName
+        ///,i.LastName
+        ///,i.Email
+        ///from CourseTeachingAssistants cta
+        ///    inner join Instructors i on cta.loginid = i.loginid
+        ///w [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string RosterQuery {
             get {
