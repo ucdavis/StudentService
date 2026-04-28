@@ -161,7 +161,7 @@ FROM
 WHERE 
 	c.TermCode = @Term
 	AND c.Subject = @Subject
-	AND c.CourseNumb in ({0})</value>
+  AND c.CourseNumb in @CourseNumbers</value>
     <comment>Query courses of the same subject</comment>
   </data>
   <data name="CourseSubjectQuery" xml:space="preserve">
@@ -232,7 +232,7 @@ from CourseRoster r
 where 
 	r.TermCode = @Term	
 	AND c.Subject = @Subject
-	AND c.CourseNumb in ({0})
+  AND c.CourseNumb in @CourseNumbers
 
 select i.LoginId
 ,i.FirstName
@@ -245,7 +245,7 @@ from CourseInstructors ci
 where
 	ci.TermCode = @Term
 	AND c.Subject = @Subject
-	AND c.CourseNumb in ({0})
+  AND c.CourseNumb in @CourseNumbers
 
 select i.LoginId
 ,i.FirstName
@@ -258,7 +258,7 @@ from CourseTeachingAssistants cta
 where
  cta.TermCode = @Term
  AND c.Subject = @Subject
- AND c.CourseNumb in ({0})</value>
+ AND c.CourseNumb in @CourseNumbers</value>
     <comment>Queries the roster/instructors for a set of coursenumbers with the same subject</comment>
   </data>
   <data name="RosterSubjectQuery" xml:space="preserve">
